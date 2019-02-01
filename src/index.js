@@ -4,6 +4,8 @@ import Faker from 'faker';
 import { range } from "d3-array";
 import { scaleOrdinal } from "d3-scale";
 //User based component
-import ScatterPlot from 'ScatterPlot';
-import { Tooltip, tooltipContext } from "./ToolTip";
+import ScatterPlot from './components/ScatterPlot';
+import { Tooltip, tooltipContext } from "./components/ToolTips";
 import "./index.css";
+
+
