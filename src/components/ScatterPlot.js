@@ -22,3 +22,17 @@ const ForeignObject = styled.foreignObject`
         box - shadow: 10 px 10 px 8 px #1b1b1b;
     }
 `;
+
+const Tooltip=({ x,y,info })=>(
+    <ForeignObject x={x+10} y={y+10} width={100} height={50}>
+        <div>
+            <strong>{info.name}</strong>
+        <p>
+            {info.state} {info.zipCode}
+        </p>
+        <p style={{color:info.color}}>
+            {info.number1.toFixed(2)}, {info.number2.toFixed(2)}
+        </p>
+        </div>
+    </ForeignObject>
+);
