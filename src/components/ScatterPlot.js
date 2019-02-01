@@ -13,3 +13,12 @@ const Circle = styled.circle`
         fill:red;
     }
 `;
+
+const ForeignObject = styled.foreignObject`
+    background: grey;
+    font-size: 12px;
+    text-align:center;
+    div{
+        box - shadow: 10 px 10 px 8 px #1b1b1b;
+    }
+`;
