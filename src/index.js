@@ -1,13 +1,12 @@
-import React,{ useMemo, useState } from 'react';
-import ReactDOM from 'react-dom';
-import Faker from 'faker';
+import React, { useMemo } from "react";
+import ReactDOM from "react-dom";
+import Faker from "faker";
 import { range } from "d3-array";
 import { scaleOrdinal } from "d3-scale";
 //User based component
-import Scatterplot from './components/ScatterPlot';
+import Scatterplot from "./components/ScatterPlot";
 import { Tooltip, tooltipContext } from "./components/ToolTips";
 import "./index.css";
-
 
 function App() {
   // Generate random data on first load
@@ -39,7 +38,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React & D3 dashboard</h1>
+      <h1>React & D3 dashboard with synced tooltips</h1>
+      <h2>For simplicity, it's scatterplots ✌️</h2>
       <tooltipContext.Provider value={state}>
         <svg width="800" height="600">
           <Scatterplot
