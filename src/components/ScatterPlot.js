@@ -36,3 +36,47 @@ const Tooltip=({ x,y,info })=>(
         </div>
     </ForeignObject>
 );
+
+export default ({
+  x,
+  y,
+  width,
+  height,
+  data,
+  xDimension,
+  yDimension,
+  padding = 10
+}) => {
+  const { tooltip, setTooltip } = useContext(tooltipContext);
+
+  const xScale = d3
+    .scaleLinear()
+    .domain(d3.extent(data, xDimension))
+    .range([padding, width - padding]);
+  const yScale = d3
+    .scaleLinear()
+    .domain(d3.extent(data, yDimension))
+    .range([padding, height - padding]);
+
+  return (
+    <g transform={`translate(${x}, ${y})`}>
+      {data.map(d => (
+        <Circle
+          key={d.id}
+          cx={xScale(xDimension(d))}
+          cy={yScale(yDimension(d))}
+          r={3}
+          onMouseOver={() => setTooltip(d)}
+          onMouseOut={() => setTooltip(false)}
+        />
+      ))}
+      {tooltip && (
+        <Tooltip
+          x={xScale(xDimension(tooltip))}
+          y={yScale(yDimension(tooltip))}
+          info={tooltip}
+        />
+      )}
+    </g>
+  );
+};
